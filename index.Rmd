@@ -2,85 +2,97 @@
 title: "A3: SPL Library Checkouts"
 output: html_document
 ---
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("Trend_Time_Chart_1.R")
+source("Trend_Time_Chart_2.R")
+source("Trend_Time_Chart_3.R")
+source("Summary_Information.R")
+```
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+The Seattle Public Library (SPL) is a library system that was founded in 1890 that provides the local resident of Seattle access to many forms of media. You are able to access data from the SPL that is updated monthly on the parameters that it chooses to record. With libraries being known for the homes of books, the COVID-19 pandemic hauled the access to this form of media by having to temporarily close down libraries. This is the reason why I decided to focus my analysis of the SPL data set on the years before COVID-19 and after (within a 5 year time span). More specifically, I was interested in the effects of how people got access to their media after being stripped away from the physical medium of their content. This is why I decided to look into the trend of how physical and digital form of media compared over the years; additionally, I also looked at the top 4 most popular forms of media fared over the last 5 years. As well as just seeing the overall effects of library checkouts per year. 
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+When deciding on the questions to ask the SPL data set, I got curious of the effects of checkout numbers during 2020, when the pandemic started. From my analysis, during the year 2020, digital forms of media had a total of 1,816,076 checkouts compared to their physical counterparts which had only 544,671 checkouts - nearly three times less. With these questions being answers, I took my sights onto more specific questions such as which specific forms of digital forms of media were checkout the most. Additionally, I also was curious to see which type of physical form of media had the least amount of checkouts. After my analysis from my second chart, during the year 2020, EBOOKS became the most checked out digital media while VISUAL forms of media became the least checked out form of media. My final question was a fairly simple one, how many check outs happened in the year 2020. The answer that I came to was 2,360,747 total checkouts from both physical and digital forms of media. This was a significantly smaller number compared to 2019 where there was roughly 3.6 million total checkouts - roughly 1.3 million more checkouts. 
 
-These will likely be calculated using your DPLYR skills, answering questions such as:
+- How many physical forms of media get checked out in 2020?
 
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
+`r physical_forms`
 
-Feel free to calculate and report values that you find relevant.
+- How many digital forms of media get checked out in 2020?
+
+`r digital_forms`
+
+- How many total checkouts were there in 2020?
+
+`r total_checkouts`
+
+- Which specific form of media becomes the most checked out in 2020?
+
+`r most_specific_forms`
+
+- Which specific form of media becomes the least checked out in 2020?
+
+`r least_specfic_forms`
 
 ### The Dataset
 
 - Who collected/published the data?  
+
+The Seattle Public Libraries 
+    
 - What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
+ 
+  - Usage Class
+  - Checkout Type
+  - Material Type
+  - Checkout Year
+  - Checkout Month
+  - Checkouts
+  - Title
+  - ISBN
+  - Creator
+  - Subjects
+  - Publisher
+  - Publication year
+  
+    
 - How was the data collected or generated?  
+
+By people checking out their media at select SPL libraries 
+    
 - Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
+
+The reasons they listed is to increase the quality of life, transparency, accountability, comparability; as well as to promote economic development, research, and improve internal performance management
+    
+- What, if any, ethical questions do you need to consider when working with this data?
+
+The only ethical questions is that not everyone knows that this data is being taken in the first place and that maybe data release consent forms are possibly not being administered (not sure if this). 
+
 - What are possible limitations or problems with this data?   (at least 200 words)
 
+Technology-wise, these file sizes make my laptop want to cry. Seriously speaking, the main thing is that since the year just started, I'm not able to see data for 2023 which is something I wish I could but I understand that some of my limitations as a human is not being able to time travel. Another limitation that I ran into was that when I was thinking about variables to try to look into, there are some slots of data that are not filled in, this makes me less inclined to pick those categories to study since I won’t be getting the full picture of the data due to the missing data. An additional glaring limitation is the timespan that this dataset encompasses, even though the 1 GB file encompasses the majority of the 20th century, the SPL system has been around 1890 which is only a fraction of the total history of the SPL. I do understand that technology back then was FAR less as advanced as compared to modern times, but this also only gives the context of the SPL for the 20th century. However, for my case, I’m only interested in the era around COVID-19, however, for more historical analysis, having data from the 19th century would be nice. 
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+`r plot`
 
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
-```
+The reason why I included this chart was because I was interested in seeing if there was any change in what type of medium people decided to get their media during COVID-19. The trend that emerged was that prior to 2020, we see that the people of Seattle checked out physical forms of media by more than double that of digital. However, during 2020, we see that there was a nosedive of people checking out physical forms of their media. 
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+`r plot_2`
 
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
-```
+The reason why I chose to graph this was because since I knew the first graph showed me the class of media people were 
+checking out during the COVID-19 era, I wanted to know more specifics like which type of digital form people preferred. The trend that I learned of was that at the start of the pandemic that ebooks became the most checked out form of media. However, something I found interesting was that at the end of 2022, audiobooks and ebooks seemed to be nearly identical. Video disks prior to the pandemic was already on the decline but physical books just took a huge loss in the amount of checkouts. 
 
 ### Your Choice
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
+`r plot_3`
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
+The reason why I decided to graph this was because I just wanted to see what the trend was of ALL forms of media/class, combining physical and digital. Specifically around 2020 where the pandemic hit the world. The trend we see here is that in 2020 there was a huge drop in all checkouts in the SPL and that after 2020 it is slowly starting to make it's recovery.
 
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
-```
 
 
