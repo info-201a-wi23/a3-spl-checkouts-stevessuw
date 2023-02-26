@@ -58,6 +58,9 @@ The Seattle Public Libraries
   - Publisher
   - Publication year
   
+- How many observations (rows) are in your data?
+
+816354
     
 - How was the data collected or generated?  
 
